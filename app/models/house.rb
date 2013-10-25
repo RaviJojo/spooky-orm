@@ -17,6 +17,4 @@ class House < Sequel::Model
     too_old?(a_kid) ? nil : Candy.new
   end
 
-  # know if a kid is too old
-
 end
