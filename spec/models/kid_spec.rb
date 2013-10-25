@@ -25,17 +25,29 @@ describe "Kid" do
 
   describe ".pig_out" do
     it "eats its candy" do
-      pending
-      # you'll need to set up a bucket and candy, then
-      # call the .pig_out method
-      # and return a status. The last line should be:
-      # kid.pig_out.should eq("Happy") or similar
+      # pending
+      
+      kid.save
+      kid.bucket = Bucket.new
+      kid.bucket.candy_quantity = 20
+      kid.bucket.save
+
+      kid.pig_out.should eq("happy")
+      kid.bucket.save
+      kid.bucket.candy_quantity.should eq(0)
+
     end
     it "gets sick if it eats too much" do
-      pending
-      # set a threshold for how much candy will make you sick
-      # then set up the bucket and candy. The last line should be:
-      # kid.pig_out.should eq("Sick") or similar
+      
+      kid.save
+      kid.bucket = Bucket.new
+      kid.bucket.candy_quantity = 22
+      kid.bucket.save
+
+      kid.pig_out.should eq("sick")
+      kid.bucket.save
+      kid.bucket.candy_quantity.should eq(0)
+      
     end
   end
 end
