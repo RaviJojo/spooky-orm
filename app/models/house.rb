@@ -1,8 +1,22 @@
 class House < Sequel::Model
-  # attr_accessor :address
+  # attr_reader :age_limit
 
-  # needs an address
+  # def initialize(age_limit)
+
+  # TODO - let houses decide their own
+  # age limit
+
+  # TODO - house has candy types 
+  # or none at all
+
+  def too_old?(a_kid)
+    a_kid.age >= 17
+  end
+
+  def give_candy(a_kid)
+    too_old?(a_kid) ? nil : Candy.new
+  end
+
   # know if a kid is too old
-  # it can be tt'd at
 
 end
